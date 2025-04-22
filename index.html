@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Aplicação</title>
+</head>
+<body>
+    <script>
+        async function buscaDados() {
+            const resposta = await fetch("localhost:8000/estudantes")
+            console.log(resposta)
+            if(resposta.status === 200){
+                const dados = await resposta.json()
+                console.log(dados)
+
+                for (let i = 0; i < dados.length; i++) {
+                    const obj =dados[i] // vai pegar cada elemento da lista
+                    const li = document.createElement("li")
+                    li.innerText = obj.nome
+                    ul.appendchild(li) // vai adicionar o li na lista com id "minhalista"
+                }
+
+                // vai passar por cada elemento dos dado
+                // vai criar um li pra cada dado
+                // adicionar o li na lista com id "minhalista"
+            }
+        }
+        buscaDados()
+    </script>
+    
+</body>
+</html> 
